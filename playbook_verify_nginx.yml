@@ -1,0 +1,9 @@
+---
+- hosts: clusters
+  remote_user: astane
+  tasks:
+    - service:
+        name: nginx
+        state: started
+      become: yes
+      become_method: sudo
