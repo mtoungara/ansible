@@ -1,0 +1,10 @@
+# commandes ansible
+ansible all -m ping
+ansible -m shell -a 'hostname' all
+ansible -m shell -a 'df -h' all
+ansible -m shell -a 'ps -aux' all
+ansible -m shell -a 'whoami' all
+ansible -b -K -m user -a 'name=mohamed' all
+ansible -m shell -a 'getent passwd | grep mohamed' all
+
+

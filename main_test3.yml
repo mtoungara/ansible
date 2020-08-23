@@ -1,0 +1,9 @@
+- name: "Installing additional software"
+  apt: pkg={{ item }} state=installed
+  with_items:
+  - dnsutils
+  - git
+  - vim
+  - ntp
+  - htop
+  - lvm2

@@ -1,0 +1,27 @@
+# Ansible est un outil d'automatisation informatique écrit en Python. 
+# Il peut configurer des systèmes, déployer des logiciels et orchestrer des tâches informatiques avancées, telles que des déploiements continus.
+# Son créateur s’appelle Michael DeHaan ; la première version de Ansible date de 2012. 
+# Tous les deux mois une nouvelle version.
+# Ansible a été racheté en 2015 par Red Hat.
+# Red Hat a été racheté par IBM en 2018.
+
+// Ansible est un outil agentless, c’est-à-dire qu’il n’installe pas d’agent sur les nodes. 
+// Il travaille donc en mode push : il pousse les installations sur les nodes. 
+// Pour cela, il n’utilise que les outils déjà présents sur la plupart des systèmes Linux : SSH et Python.
+
+// L’inverse du mode push est le mode pull. 
+// Par exemple, une marketplace d’applications comme le Play Store ou l’AppStore d’Apple sont des systèmes en mode pull : le client (le smartphone) tire les applications ou les mises à jour vers lui. 
+
+$ ansible-config list
+
+// vous allez lister la configuration de Ansible. Toutes ces variables sont contenues dans ./lib/python2.7/site-packages/ansible/constants.py ;
+
+$ ansible -m ping all
+
+// Creat user_ansible & pass & add user to group wheel
+
+$ ansible localhost -i inventaire.ini -m debug -a "msg={{ 'passforce' | password_hash('sha512', 'sceretsalt') }}"
+
+$ ansible -i inventaire.ini -m user -a 'name=user-ansible password=$' --user root --ask-pass all
+
+$ ansible -i inventaire.ini -m user -a 'name=user-ansible groups=wheel append=yes ' --user root --ask-pass all
