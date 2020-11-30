@@ -6,5 +6,6 @@ ansible -m shell -a 'ps -aux' all
 ansible -m shell -a 'whoami' all
 ansible -b -K -m user -a 'name=mohamed' all
 ansible -m shell -a 'getent passwd | grep mohamed' all
-
+# Après installation ansible ---> auto completion
+$ activate-global-python-argcomplete
 
